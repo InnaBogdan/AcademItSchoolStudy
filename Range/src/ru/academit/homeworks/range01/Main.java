@@ -31,11 +31,19 @@ public class Main {
         Range userFirstInterval = new Range(3, 7);
         Range userSecondInterval = new Range(2, 6);
 
-        userParameters.isInside(userNumber);
+        boolean result = userParameters.isInside(userNumber);
+        System.out.println(result);
+        /*
+        double lengthInterval = calcDistance.Range(userParameters);
+        System.out.println(lengthInterval);
+        */
 
-        userFirstInterval.getCrossInterval(userSecondInterval);
-        userFirstInterval.getGeneralInterval(userSecondInterval);
-        userFirstInterval.getSubtractionInterval(userSecondInterval);
+        Range range01 = userFirstInterval.getCrossInterval(userSecondInterval);
+        System.out.println(range01);
+        Range [] range02 = userFirstInterval.getGeneralInterval(userSecondInterval);
+        System.out.println(range02);
+        Range [] range03 = userFirstInterval.getSubtractionInterval(userSecondInterval);
+        System.out.println(range03);
 
     }
 }
