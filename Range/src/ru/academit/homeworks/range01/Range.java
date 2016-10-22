@@ -5,13 +5,8 @@ public class Range {
     private double from;
     private double to;
     private static final double EPSILON = 0.00000001;
-    private double minFrom;
-    private double maxFrom;
-    private double minTo;
-    private double maxTo;
 
     public Range(double from, double to) {
-
         this.from = from;
         this.to = to;
     }
@@ -25,64 +20,40 @@ public class Range {
     }
 
     public boolean isInside(double number) {
-
         return (((Math.abs(number - from) <= EPSILON) || (number > from)) && ((Math.abs(number - to) <= EPSILON) || (number < to)));
     }
-/*
-    public double calcDistance(Range range) {
-        return to - from;
-    }*/
 
-    private void getMinMax(Range range) {
-        if (to < range.to) {
-            minTo = to;
-            maxTo = range.to;
-        } else {
-            maxTo = to;
-            minTo = range.to;
-        }
-        if (from < range.from) {
-            minFrom = from;
-            maxFrom = range.from;
-        } else {
-            maxFrom = from;
-            minFrom = range.from;
-        }
+    public double calcDistance() {
+        return to - from;
     }
 
     public Range getCrossInterval(Range range) {
-
-        getMinMax(range);
-
-        if (minTo < maxFrom) {
+        if (Math.min(to, range.to) < Math.max(from, range.from)) {
             return null;
         } else {
-            return new Range(maxFrom, minTo);
+            return new Range(Math.max(from, range.from), Math.min(to, range.to));
         }
     }
 
-    public Range [] getGeneralInterval(Range range) {
-        getMinMax(range);
-
-        if (minTo < maxFrom) {
-            return new Range [] {new Range(minFrom, minTo), new Range(maxFrom, maxTo)};
+    public Range[] getGeneralInterval(Range range) {
+        if (Math.min(to, range.to) < Math.max(from, range.from)) {
+            return new Range[]{new Range(Math.min(from, range.from), Math.min(to, range.to)), new Range(Math.max(from, range.from), Math.max(to, range.to))};
         } else {
-            return new Range [] {new Range(minFrom, maxTo)};
+            return new Range[]{new Range(Math.min(from, range.from), Math.max(to, range.to))};
         }
     }
 
-    public Range [] getSubtractionInterval(Range range) {
-        getMinMax(range);
-
-        if (minTo < maxFrom) {
-            return new Range [] {new Range(minFrom, minTo), new Range(maxFrom, maxTo)};
-
-        } else if (Math.abs(maxTo - minTo) <= EPSILON) {
-            return new Range [] {new Range(minFrom, maxFrom)};
-        } else if (Math.abs(maxFrom - minFrom) <= EPSILON) {
-            return new Range [] {new Range(minTo, maxTo)};
+    public Range[] getSubtractionInterval(Range range) {
+        if (to < range.from) {
+            return new Range[]{new Range(from, to)};
+        } else if (((Math.abs(from - range.from) <= EPSILON) || (range.from < from)) && (to < range.to)) {
+            return null;
+        } else if (((Math.abs(from - range.from) <= EPSILON) || (range.from < from)) && (range.to < to)) {
+            return new Range[]{new Range(range.to, to)};
+        } else if ((from < range.from) && (range.to < to)) {
+            return new Range[]{new Range(from, range.from), new Range(range.to, to)};
         } else {
-            return new Range [] {new Range(minFrom, maxFrom), new Range(minTo, maxTo)};
+            return new Range[]{new Range(from, range.from)};
         }
     }
 }

@@ -1,5 +1,4 @@
 package ru.academit.homeworks.range01;
-
 import java.util.Scanner;
 
 public class Main {
@@ -33,18 +32,16 @@ public class Main {
 
         boolean result = userParameters.isInside(userNumber);
         System.out.println(result);
-        /*
-        double lengthInterval = calcDistance.Range(userParameters);
+
+        double lengthInterval = userParameters.calcDistance();
         System.out.println(lengthInterval);
-        */
 
         Range range01 = userFirstInterval.getCrossInterval(userSecondInterval);
         System.out.println(range01);
-        Range [] range02 = userFirstInterval.getGeneralInterval(userSecondInterval);
+        Range[] range02 = userFirstInterval.getGeneralInterval(userSecondInterval);
         System.out.println(range02);
-        Range [] range03 = userFirstInterval.getSubtractionInterval(userSecondInterval);
+        Range[] range03 = userFirstInterval.getSubtractionInterval(userSecondInterval);
         System.out.println(range03);
-
     }
 }
 
