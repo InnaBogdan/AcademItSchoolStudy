@@ -27,11 +27,11 @@ public class Range {
         return to - from;
     }
 
-    public Range getCrossInterval(Range range) {
+    public Range[] getCrossInterval(Range range) {
         if (Math.min(to, range.to) < Math.max(from, range.from)) {
-            return null;
+            return new Range[]{null};
         } else {
-            return new Range(Math.max(from, range.from), Math.min(to, range.to));
+            return new Range[]{new Range(Math.max(from, range.from), Math.min(to, range.to))};
         }
     }
 
@@ -46,8 +46,8 @@ public class Range {
     public Range[] getSubtractionInterval(Range range) {
         if (to < range.from) {
             return new Range[]{new Range(from, to)};
-        } else if (((Math.abs(from - range.from) <= EPSILON) || (range.from < from)) && (to < range.to)) {
-            return null;
+        } else if ((((Math.abs(from - range.from) <= EPSILON) || (range.from < from)) && (to < range.to)) || (range.to < from)) {
+            return new Range[]{null};
         } else if (((Math.abs(from - range.from) <= EPSILON) || (range.from < from)) && (range.to < to)) {
             return new Range[]{new Range(range.to, to)};
         } else if ((from < range.from) && (range.to < to)) {
