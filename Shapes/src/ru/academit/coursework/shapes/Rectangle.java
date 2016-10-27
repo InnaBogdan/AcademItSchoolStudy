@@ -1,28 +1,29 @@
 package ru.academit.coursework.shapes;
 
-public class Rectangle {
+public class Rectangle implements Shapes{
 
-    private double firstSideRectangle;
-    private double secondSideRectangle;
+    private double firstSide;
+    private double secondSide;
 
-    public Rectangle(double firstSideRectangle, double secondSideRectangle) {
-        this.firstSideRectangle = firstSideRectangle;
-        this.secondSideRectangle = secondSideRectangle;
+    public Rectangle(double firstSide, double secondSide) {
+        this.firstSide = firstSide;
+        this.secondSide = secondSide;
     }
 
-    public double getWidthRectangle() {
-        return firstSideRectangle;
+    public double getWidth() {
+        return firstSide;
     }
 
-    public double getHeightRectangle() {
-        return secondSideRectangle;
+    public double getHeight() {
+        return secondSide;
     }
 
-    public double getAreaRectangle() {
-        return firstSideRectangle * secondSideRectangle;
+    public double getArea() {
+        return firstSide * secondSide;
     }
 
-    public double getPerimeterRectangle(){
-        return 2 * (firstSideRectangle + secondSideRectangle);
+    public double getPerimeter(){
+        return 2 * (firstSide + secondSide);
     }
 }
+

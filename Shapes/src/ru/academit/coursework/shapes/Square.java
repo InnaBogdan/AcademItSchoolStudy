@@ -1,26 +1,27 @@
 package ru.academit.coursework.shapes;
 
-public class Square {
+public class Square implements Shapes{
 
-    private double sideSquare;
+    private double side;
 
     public Square(double sideSquare) {
-        this.sideSquare = sideSquare;
+        this.side = sideSquare;
     }
 
     public double getWidth() {
-        return sideSquare;
+        return side;
     }
 
     public double getHeight() {
-        return sideSquare;
+        return side;
     }
 
     public double getArea() {
-        return Math.pow(sideSquare, 2);
+        return Math.pow(side, 2);
     }
 
     public double getPerimeter(){
-        return sideSquare * 4;
+        return side * 4;
     }
 }
+

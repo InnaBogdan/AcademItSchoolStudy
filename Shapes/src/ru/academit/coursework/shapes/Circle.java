@@ -1,25 +1,26 @@
 package ru.academit.coursework.shapes;
 
-public class Circle {
-    private double radiusCircle;
+public class Circle implements Shapes {
+    private double radius;
 
-    public Circle(double radiusCircle) {
-        this.radiusCircle = radiusCircle;
+    public Circle(double radius) {
+        this.radius = radius;
     }
 
-    public double getWidthCircle() {
-        return radiusCircle;
+    public double getWidth() {
+        return radius;
     }
 
-    public double getHeightCircle() {
-        return radiusCircle;
+    public double getHeight() {
+        return radius;
     }
 
-    public double getAreaCircle() {
-        return Math.pow(radiusCircle, 2) * Math.PI;
+    public double getArea() {
+        return Math.pow(radius, 2) * Math.PI;
     }
 
-    public double getPerimeterCircle(){
-        return 2 * Math.PI * radiusCircle;
+    public double getPerimeter(){
+        return 2 * Math.PI * radius;
     }
 }
+

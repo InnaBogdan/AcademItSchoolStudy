@@ -1,12 +1,10 @@
 package ru.academit.coursework.shapes;
 
-public class Shapes {
+public interface Shapes {
 
-    private Square sideSquare;
-    private Rectangle firstSideRectangle;
-    private Rectangle secondSideRectangle;
-    private Circle radiusCircle;
-
-
-
+    double getWidth();
+    double getHeight();
+    double getArea();
+    double getPerimeter();
 }
+
