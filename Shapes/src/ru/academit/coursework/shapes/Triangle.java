@@ -18,55 +18,35 @@ public class Triangle implements Shape {
         this.y3 = y3;
     }
 
-    private double calcMinMaxX(double x1, double x2, double x3) {
-        double[] arrayX = {x1, x2, x3};
-        double maxX = arrayX[0];
+    private static double calcMinMax(double firstNumber, double secondNumber, double thirdNumber) {
+        double[] array = {firstNumber, secondNumber, thirdNumber};
+        double max = array[0];
 
-        for (int i = 1; i < arrayX.length; i++) {
-            if (arrayX[i] > maxX) {
-                maxX = arrayX[i];
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] > max) {
+                max = array[i];
             }
         }
 
-        double minX = arrayX[0];
+        double min = array[0];
 
-        for (int i = 1; i < arrayX.length; i++) {
-            if (arrayX[i] < minX) {
-                minX = arrayX[i];
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] < min) {
+                min = array[i];
             }
         }
-        return maxX - minX;
-    }
-
-    private double calcMinMaxY(double y1, double y2, double y3) {
-        double[] arrayY = {y1, y2, y3};
-        double maxY = arrayY[0];
-
-        for (int i = 1; i < arrayY.length; i++) {
-            if (arrayY[i] > maxY) {
-                maxY = arrayY[i];
-            }
-        }
-
-        double minY = arrayY[0];
-
-        for (int i = 1; i < arrayY.length; i++) {
-            if (arrayY[i] < minY) {
-                minY = arrayY[i];
-            }
-        }
-        return maxY - minY;
+        return max - min;
     }
 
     public double getWidth() {
-        return calcMinMaxX(x1, x2, x3);
+        return calcMinMax(x1, x2, x3);
     }
 
     public double getHeight() {
-        return calcMinMaxY(y1, y2, y3);
+        return calcMinMax(y1, y2, y3);
     }
 
-    private double getSide(double x1, double y1, double x2, double y2) {
+    private static double getSide(double x1, double y1, double x2, double y2) {
         return Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
     }
 
@@ -75,9 +55,8 @@ public class Triangle implements Shape {
     }
 
     public double getArea() {
-        double halfPerimeter = (getSide(x1, y1, x2, y2) + getSide(x2, y2, x3, y3) + getSide(x3, y3, x1, y1)) / 2;
-        return Math.sqrt(halfPerimeter * (halfPerimeter - getSide(x1, y1, x2, y2))
-                * (halfPerimeter - getSide(x2, y2, x3, y3)) * (halfPerimeter - getSide(x3, y3, x1, y1)));
+        return Math.sqrt(getPerimeter() / 2 * (getPerimeter() / 2 - getSide(x1, y1, x2, y2))
+                * (getPerimeter() / 2 - getSide(x2, y2, x3, y3)) * (getPerimeter() / 2 - getSide(x3, y3, x1, y1)));
     }
 }
 
