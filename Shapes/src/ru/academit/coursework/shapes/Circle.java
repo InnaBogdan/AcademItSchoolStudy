@@ -1,6 +1,6 @@
 package ru.academit.coursework.shapes;
 
-public class Circle implements Shapes {
+public class Circle implements Shape {
     private double radius;
 
     public Circle(double radius) {
@@ -8,11 +8,11 @@ public class Circle implements Shapes {
     }
 
     public double getWidth() {
-        return radius;
+        return 2 * radius;
     }
 
     public double getHeight() {
-        return radius;
+        return 2 * radius;
     }
 
     public double getArea() {

@@ -1,6 +1,6 @@
 package ru.academit.coursework.shapes;
 
-public class Square implements Shapes{
+public class Square implements Shape {
 
     private double side;
 

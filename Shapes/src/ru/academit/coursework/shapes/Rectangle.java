@@ -1,29 +1,29 @@
 package ru.academit.coursework.shapes;
 
-public class Rectangle implements Shapes{
+public class Rectangle implements Shape {
 
-    private double firstSide;
-    private double secondSide;
+    private double width;
+    private double height;
 
     public Rectangle(double firstSide, double secondSide) {
-        this.firstSide = firstSide;
-        this.secondSide = secondSide;
+        this.width = firstSide;
+        this.height = secondSide;
     }
 
     public double getWidth() {
-        return firstSide;
+        return width;
     }
 
     public double getHeight() {
-        return secondSide;
+        return height;
     }
 
     public double getArea() {
-        return firstSide * secondSide;
+        return width * height;
     }
 
     public double getPerimeter(){
-        return 2 * (firstSide + secondSide);
+        return 2 * (width + height);
     }
 }
 

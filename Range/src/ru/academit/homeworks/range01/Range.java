@@ -46,8 +46,8 @@ public class Range {
     public Range[] getSubtractionInterval(Range range) {
         if (to < range.from) {
             return new Range[]{new Range(from, to)};
-        } else if ((((Math.abs(from - range.from) <= EPSILON) || (range.from < from)) && (to < range.to)) || (range.to < from)) {
-            return new Range[]{null};
+        } else if (((Math.abs(from - range.from) <= EPSILON) || (range.from < from)) && (to < range.to)) {
+            return new Range[]{};
         } else if (((Math.abs(from - range.from) <= EPSILON) || (range.from < from)) && (range.to < to)) {
             return new Range[]{new Range(range.to, to)};
         } else if ((from < range.from) && (range.to < to)) {
@@ -57,4 +57,5 @@ public class Range {
         }
     }
 }
+
 
