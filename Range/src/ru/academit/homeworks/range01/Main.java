@@ -40,10 +40,10 @@ public class Main {
 /*
         Range range01 = userFirstInterval.getCrossInterval(userSecondInterval);
         System.out.println(Arrays.toString(range01));*/
-        Range[] range02 = userFirstInterval.getGeneralInterval(userSecondInterval);
-        System.out.println(Arrays.toString(range02));
-        Range[] range03 = userFirstInterval.getSubtractionInterval(userSecondInterval);
-        System.out.println(Arrays.toString(range03));
+        String range02 = userFirstInterval.getGeneralInterval(userSecondInterval);
+        System.out.println(range02);
+      /*  Range[] range03 = userFirstInterval.getSubtractionInterval(userSecondInterval);
+        System.out.println(Arrays.toString(range03));*/
     }
 }
 

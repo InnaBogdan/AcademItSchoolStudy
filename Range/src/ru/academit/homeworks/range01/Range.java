@@ -1,5 +1,7 @@
 package ru.academit.homeworks.range01;
 
+import java.util.Arrays;
+
 public class Range {
 
     private double from;
@@ -27,22 +29,31 @@ public class Range {
         return to - from;
     }
 
+    private String toString(Range[] a) {
+        return Arrays.toString(a);
+    }
+/*
     public Range getCrossInterval(Range range) {
         if (Math.min(to, range.to) < Math.max(from, range.from)) {
             return null;
         } else {
             return new Range(Math.max(from, range.from), Math.min(to, range.to));
         }
-    }
+    }*/
 
-    public Range[] getGeneralInterval(Range range) {
+    public String getGeneralInterval(Range range) {
+        Range[] resultFirst;
+        Range[] resultSecond;
         if (Math.min(to, range.to) < Math.max(from, range.from)) {
-            return new Range[]{new Range(Math.min(from, range.from), Math.min(to, range.to)), new Range(Math.max(from, range.from), Math.max(to, range.to))};
+            resultFirst = new Range[]{new Range(Math.min(from, range.from), Math.min(to, range.to)),
+                    new Range(Math.max(from, range.from), Math.max(to, range.to))};
+            return toString(resultFirst);
         } else {
-            return new Range[]{new Range(Math.min(from, range.from), Math.max(to, range.to))};
+            resultSecond = new Range[]{new Range(Math.min(from, range.from), Math.max(to, range.to))};
+            return toString(resultSecond);
         }
     }
-
+/*
     public Range[] getSubtractionInterval(Range range) {
         if (to < range.from) {
             return new Range[]{new Range(from, to)};
@@ -55,7 +66,7 @@ public class Range {
         } else {
             return new Range[]{new Range(from, range.from)};
         }
-    }
+    }*/
 }
 
 
