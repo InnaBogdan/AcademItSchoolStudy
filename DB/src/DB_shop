@@ -1,0 +1,44 @@
+drop database shop;
+create database shop;
+use shop;
+-- drop table cathegory;
+create table cathegory
+(
+id int auto_increment primary key,
+name varchar(256)
+);
+insert into cathegory (name)
+	values
+    ("спортивный инвентарь"),
+    ("канцелярские товары"),
+    ("игрушки")
+    ;
+-- drop table products;
+create table products
+(
+id int auto_increment primary key,
+name varchar(256),
+price int not null,
+id_cathegory int not null,
+foreign key(id_cathegory)references cathegory(id)
+);
+insert into products (name, price, id_cathegory)
+	values
+    ("мяч", 530, 1),
+    ("ручка", 25, 2),
+    ("линейка", 32, 2),
+    ("кукла", 1850, 3),
+    ("скакалка", 350, 1)
+    ;
+insert into products (name, price, id_cathegory)
+	values
+    ("конструктор", 210, 3),
+    ("гантели", 825, 1),
+    ("ластик", 13, 2)
+    ;
+delete from products
+	where price > 100
+    limit 1000;
+update products
+	set name="карандаш", price=18
+	where id=2;
