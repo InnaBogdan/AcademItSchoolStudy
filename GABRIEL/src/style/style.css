@@ -73,33 +73,35 @@ a.disabled {
     border-collapse: collapse;
 }
 
-.centre {
+.main-tr tbody {
+    height: 195px;
+    overflow-y: auto;
+}
+
+.centre,
+.centre-bold {
     text-align: center;
 }
 
 .centre-bold {
-    text-align: center;
     font-style: bold;
     font-size: 16px;
 }
 
-li {
-    list-style-type: none;
-    display: inline;
-}
-
-.main-table th {
-    text-align: left;
-    padding-bottom: 10px;
-}
-
+.main-tr th,
 .main-tr td {
-    padding: 5px;
+    padding: 7px 0;
+    float: left;
 }
 
-.main-tr tr:first-child {
+.main-tr thead {
     border-bottom: 1px solid #9a9a9a;
     font-size: 12px;
+}
+
+.main-tr th {
+    text-align: left;
+    font-weight: normal;
 }
 
 .main-tr td:first-child {
@@ -111,6 +113,51 @@ li {
     font-family: 'Roboto Mono';
     color: #646464;
     padding: 5px 40px 5px 5px;
+}
+
+.main-tr th:first-child,
+.main-tr td:first-child {
+    width: 9%;
+}
+
+.main-tr th:nth-child(2),
+.main-tr td:nth-child(2) {
+    width: 6%;
+}
+
+.main-tr th:nth-child(3),
+.main-tr td:nth-child(3) {
+    width: 27%;
+}
+
+.main-tr th:nth-child(4),
+.main-tr td:nth-child(4) {
+    width: 10%;
+}
+
+.main-tr th:nth-child(5),
+.main-tr td:nth-child(5) {
+    width: 25%;
+}
+
+.main-tr th:nth-child(6),
+.main-tr td:nth-child(6) {
+    width: 5%;
+}
+
+.main-tr th:last-child,
+.main-tr td:last-child {
+    width: 15%;
+}
+
+.main-tr tbody,
+.main-tr tr,
+.main-tr td,
+.footer-table tbody,
+.footer-table tr,
+.footer-table th,
+.footer-table td {
+    display: block;
 }
 /*__BUTTON________________________________________________________________________*/
 
@@ -184,6 +231,8 @@ li {
 }
 
 /* ______________________________________________*/
+
+
 .footer-table {
     float: left;
     width: 100%;
@@ -213,7 +262,6 @@ li {
 .footer-table .footer-tr {
     background-color: #fed929;
     text-align: left;
-    margin-left: 100px;
 }
 
 .clearfix {
@@ -231,14 +279,50 @@ h2 {
     font-weight: bold;
 }
 
-/* ______________________________________________*/
-/* ______________________________________________*/
-
-
-   tbody.scrollable {
+.footer-table tr:after {
+    content: ' ';
     display: block;
-    height: 180px;
-    overflow: scroll;
-    width: 100%;
-   }
+    visibility: hidden;
+    clear: both;
+}
+
+.footer-table thead tr {
+    width: 97%;
+    width: -webkit-calc(100% - 16px);
+    width:    -moz-calc(100% - 16px);
+    width:         calc(100% - 16px);
+}
+
+.footer-table th,
+.footer-table td {
+    width: 14%;
+    float: left;
+}
+
+.footer-table tbody {
+    height: 148px;
+    overflow-y: auto;
+}
+
+.footer-table th:nth-child(4),
+.footer-table td:nth-child(4),
+.footer-table th:nth-child(5),
+.footer-table td:nth-child(5) {
+    width: 20%;
+}
+
+.footer-table th:last-child,
+.footer-table td:last-child {
+    width: 4%;
+}
+
+.footer-table td:last-child,
+.footer-table th:last-child {
+    width: 5%;
+}
+
+
+
+
+
 
